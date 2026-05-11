@@ -1,12 +1,16 @@
 # AURA LangGraph Agent
 
-This folder implements the three-stage agent flow from `agent_Flow.png`:
+This folder implements the three-stage agent flow from `agent_flow.png`:
 
 1. Phase 1: netlist retargeting, rule checks, Spectre compile/debug loop.
 2. Phase 2: topology-aware Ocean measurement planning and script generation.
 3. Phase 3: Ocean execution, metric analysis, and parameter optimization loop.
 
 The project is built with LangGraph. It defaults to `AURA_DRY_RUN=true` so it can run before you connect to the UCI Cadence server. In dry-run mode, the Spectre and Ocean nodes write artifacts and synthetic metric CSVs instead of launching Cadence.
+
+## Agent Flow
+
+![Agent flow](agent_flow.png)
 
 ## Setup
 

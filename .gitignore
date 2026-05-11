@@ -2,8 +2,8 @@
 __pycache__/
 *.pyc
 .env
+.~lock.*#
 workspace/runs/*
 outputs/*
 !workspace/runs/.gitkeep
 !outputs/.gitkeep
-
