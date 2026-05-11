@@ -1,0 +1,6 @@
+metric,target,comparison,tolerance,unit,weight,notes
+gain_db,40,>=,,dB,5,Small-signal voltage gain target
+bandwidth_hz,1000000,>=,,Hz,3,Unity or -3dB bandwidth target
+power_w,0.001,<=,,W,3,Total static power budget
+vout_dc,0.55,within,0.1,V,2,Output common-mode around half VDD for 1.1V target
+

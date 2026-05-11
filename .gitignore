@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+workspace/runs/*
+outputs/*
+!workspace/runs/.gitkeep
+!outputs/.gitkeep
+
