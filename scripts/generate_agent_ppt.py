@@ -3,7 +3,7 @@ from __future__ import annotations
 
 import subprocess
 import textwrap
-from datetime import date
+from datetime import datetime
 from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont
@@ -15,7 +15,6 @@ from pptx.util import Inches, Pt
 
 
 BASE = Path(__file__).resolve().parents[1]
-ROOT = BASE.parent
 OUT = BASE / "AURA_Agentic_Framework_Yunbo.pptx"
 ASSETS = BASE / "presentation_assets"
 ASSETS.mkdir(parents=True, exist_ok=True)
@@ -100,7 +99,8 @@ def tree_text() -> str:
     keep = []
     for line in sorted(proc.stdout.splitlines()):
         if (
-            "__pycache__" in line
+            line.startswith((".git/", ".venv/"))
+            or "__pycache__" in line
             or line.startswith("workspace/runs/")
             or line.startswith("outputs/")
             or line.startswith("presentation_assets/")
@@ -251,15 +251,16 @@ def build_assets() -> dict[str, Path]:
     assets["tool_code"] = code_panel(file_text(BASE / "codex_agent" / "tools.py", 390, 468), ASSETS / "tools_code.png")
     cli = textwrap.dedent(
         """\
-        cd /home/emc/Documents/rag/codex_agent
+        cd MS_Migration_Agent
         python -m venv .venv
         source .venv/bin/activate
         pip install -r requirements.txt
 
         python run_agent.py \\
-          --source /home/emc/Documents/rag/david/45nm/2stageinput_david.scs \\
+          --source examples/source_amplifier_example.scs \\
           --target-specs examples/target_specs_example.csv \\
           --target-pdk ptm22_lp \\
+          --max-iterations 4 \\
           --prompt "Retarget the 45nm amplifier to PTM 22nm LP"
 
         Outputs:
@@ -278,6 +279,13 @@ def create_deck() -> Path:
     prs = Presentation()
     prs.slide_width = Inches(SLIDE_W)
     prs.slide_height = Inches(SLIDE_H)
+    props = prs.core_properties
+    props.title = "AURA — Agentic Retargeting Framework"
+    props.subject = "Microsoft × UC Irvine M.Eng Capstone"
+    props.author = "Yunbo Wang"
+    props.last_modified_by = "Yunbo Wang"
+    props.created = datetime(2026, 5, 8)
+    props.modified = datetime(2026, 5, 8)
     total = 16
 
     # 1 Title
@@ -301,7 +309,7 @@ def create_deck() -> Path:
             "Students: Yunbo Wang",
             "Company Liaisons: Joe Tostenrude, Yousef Iskander, Ph.D., Richard Paw",
             "Faculty Advisor: Dr. Farzad Ahmadkhanlou",
-            f"Date: {date.today().strftime('%B %d, %Y')}",
+            "Date: May 08, 2026",
         ],
         2.05,
         3.52,
@@ -338,10 +346,9 @@ def create_deck() -> Path:
 
     # 3 Existing flow
     slide = blank(prs)
-    add_title(slide, "3 Stage Agent Flow")
-    flow = ROOT / "agent_Flow.png"
+    flow = BASE / "agent_flow.png"
     if flow.exists():
-        slide.shapes.add_picture(str(flow), Inches(0.25), Inches(1.02), width=Inches(12.85))
+        slide.shapes.add_picture(str(flow), Inches(0.78), Inches(0.12), width=Inches(11.78))
     add_footer(slide, 3, total)
 
     # 4 LangGraph implementation

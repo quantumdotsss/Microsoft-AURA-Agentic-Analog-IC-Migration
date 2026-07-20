@@ -1,0 +1,24 @@
+// Synthetic differential-amplifier fixture for AURA dry-run demonstrations.
+// This netlist contains no proprietary model or foundry data and is not
+// intended for circuit signoff.
+
+simulator lang=spectre
+global 0
+
+parameters VDD=1.8 VinDC=0.9 VinAC=1m Ibtail=20u ISS=20u \
+    Vbiasn=0.7 Aref=0.9 Rg=10k Rm=10k
+
+include "models/source_45nm_example.scs" section=tt
+
+VDD_SRC (vdd 0) vsource dc=VDD
+VIN_P (vinp 0) vsource dc=VinDC mag=VinAC
+VIN_N (vinn 0) vsource dc=VinDC mag=VinAC
+IBIAS (tail 0) isource dc=Ibtail
+
+M1 (vout vinp tail 0) nch w=1u l=45n
+M2 (voutn vinn tail 0) nch w=1u l=45n
+M3 (vout vout vdd vdd) pch w=2u l=45n
+M4 (voutn vout vdd vdd) pch w=2u l=45n
+
+RLOAD (vout 0) resistor r=Rg
+CLOAD (vout 0) capacitor c=1p

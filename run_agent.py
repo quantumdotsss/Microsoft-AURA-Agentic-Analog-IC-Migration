@@ -9,6 +9,10 @@ from typing import Any
 
 from dotenv import load_dotenv
 
+# Load .env before importing config: Settings and PDK presets are constructed
+# when the module is imported.
+load_dotenv()
+
 from codex_agent.config import ensure_directories, settings
 from codex_agent.graph import build_graph
 
@@ -29,7 +33,6 @@ def parse_args() -> argparse.Namespace:
 
 
 def main() -> int:
-    load_dotenv()
     ensure_directories()
     args = parse_args()
 

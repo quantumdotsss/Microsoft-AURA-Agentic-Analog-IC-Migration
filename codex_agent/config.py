@@ -40,7 +40,7 @@ TARGET_PDKS: dict[str, dict[str, Any]] = {
         "min_w": "44n",
         "nmos_model": "nmos",
         "pmos_model": "pmos",
-        "default_include": "/users/ugrad/yunbow4/EECS270A/TPM/Bulk_CMOS_Models/22nm_PTM/LP/22nm_LP.pm",
+        "default_include": os.getenv("AURA_PTM22_MODEL_PATH", ""),
         "default_parameters": {
             "VDD": "0.95V",
             "VinDC": "0.75V",
@@ -63,7 +63,7 @@ TARGET_PDKS: dict[str, dict[str, Any]] = {
         "min_w": "120n",
         "nmos_model": "nch",
         "pmos_model": "pch",
-        "default_include": "/ecelib/eceware/cadence/gpdk/gpdk045_v_6_0/models/spectre/gpdk045.scs",
+        "default_include": os.getenv("AURA_GPDK045_MODEL_PATH", ""),
         "default_include_suffix": "section=tt",
         "default_parameters": {
             "VDD": "1.1",
@@ -87,7 +87,7 @@ TARGET_PDKS: dict[str, dict[str, Any]] = {
         "min_w": "50n",
         "nmos_model": "nfet",
         "pmos_model": "pfet",
-        "default_include": "",
+        "default_include": os.getenv("AURA_ASAP7_MODEL_PATH", ""),
         "default_parameters": {
             "VDD": "0.7",
             "VinDC": "0.35",
