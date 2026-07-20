@@ -62,8 +62,8 @@ optimization iteration.
 Python 3.10 or newer is recommended.
 
 ```bash
-git clone https://github.com/quantumdotsss/MS_Migration_Agent.git
-cd MS_Migration_Agent
+git clone https://github.com/quantumdotsss/Microsoft-AURA-Agentic-Analog-IC-Migration.git
+cd Microsoft-AURA-Agentic-Analog-IC-Migration
 
 python -m venv .venv
 source .venv/bin/activate

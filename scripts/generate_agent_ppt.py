@@ -251,7 +251,7 @@ def build_assets() -> dict[str, Path]:
     assets["tool_code"] = code_panel(file_text(BASE / "codex_agent" / "tools.py", 390, 468), ASSETS / "tools_code.png")
     cli = textwrap.dedent(
         """\
-        cd MS_Migration_Agent
+        cd Microsoft-AURA-Agentic-Analog-IC-Migration
         python -m venv .venv
         source .venv/bin/activate
         pip install -r requirements.txt
