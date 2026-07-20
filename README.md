@@ -159,7 +159,7 @@ while separating the orchestration research from licensed EDA assets.
 
 Developed by **Yunbo Wang** for the **UC Irvine Samueli School of Engineering
 M.Eng Capstone**, in collaboration with Microsoft industry liaisons. The project
-was recognized as a **Dean's Favorite**.
+was recognized as a **Dean's Favorite (Honored)**.
 
 The included presentation documents the implemented agent framework, design
 decisions, current capabilities, and next steps.
