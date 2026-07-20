@@ -9,8 +9,7 @@ generated Ocean measurements, validation artifacts, and an optimization report.
 
 > **Recognition:** selected as a **Dean's Favorite (Honored)** project in the
 > UC Irvine M.Eng Capstone program. I developed the agent orchestration and EDA
-> workflow
-> as part of an industry-sponsored capstone with Microsoft.
+> workflow as part of an industry-sponsored capstone with Microsoft.
 
 [Presentation deck](AURA_Agentic_Framework_Yunbo.pptx) ·
 [PDF preview](ppt_preview/AURA_Agentic_Framework_Yunbo.pdf) ·
