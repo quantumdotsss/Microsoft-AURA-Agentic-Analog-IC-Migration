@@ -7,7 +7,7 @@ netlists between process design kits (PDKs). It turns a source Spectre netlist,
 target specifications, and a migration prompt into a retargeted netlist,
 generated Ocean measurements, validation artifacts, and an optimization report.
 
-> **Recognition:** selected as a **Dean's Favorite** project in the UC Irvine
+> **Recognition:** selected as a **Dean's Favorite (Honored)** project in the UC Irvine
 > M.Eng Capstone program. I developed the agent orchestration and EDA workflow
 > as part of an industry-sponsored capstone with Microsoft.
 
@@ -159,7 +159,7 @@ while separating the orchestration research from licensed EDA assets.
 
 Developed by **Yunbo Wang** for the **UC Irvine Samueli School of Engineering
 M.Eng Capstone**, in collaboration with Microsoft industry liaisons. The project
-was recognized as a **Dean's Favorite (Honored)**.
+was recognized as a **Dean's Favorite **.
 
 The included presentation documents the implemented agent framework, design
 decisions, current capabilities, and next steps.
